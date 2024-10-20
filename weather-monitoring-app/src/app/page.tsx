@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
-import { Title } from "@/components/ui/atoms/title/Title";
 
 export default function Home() {
   return (
