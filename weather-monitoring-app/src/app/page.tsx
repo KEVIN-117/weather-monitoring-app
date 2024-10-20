@@ -1,7 +1,9 @@
 "use client";
 import Image from "next/image";
-import { Button } from "@nextui-org/button";
+import { Button } from '@/components/ui/atoms/Button';
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { MoonIcon } from "@/assets/Icons/MoonIcon";
+import { SunIcon } from "@/assets/Icons/SunIcon";
 
 export default function Home() {
   return (
