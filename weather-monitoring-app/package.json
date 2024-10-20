@@ -13,6 +13,7 @@
     "@headlessui/react": "^2.1.10",
     "@headlessui/tailwindcss": "^0.2.1",
     "@nextui-org/react": "^2.4.8",
+    "classnames": "^2.5.1",
     "framer-motion": "^11.11.9",
     "next": "14.2.15",
     "next-themes": "^0.3.0",
