@@ -4,12 +4,9 @@ import React from 'react'
 import { IButtonProps } from './'
 
 export function Button(props: IButtonProps) {
-    // desectructure all prop
     const { children, type, color, variant, value, onClick, icon, className, size, radius, loading } = props
 
-    const buttonClass = classNames(className, {
-        // 'text-xl': size === 'xl',
-    })
+    const buttonClass = classNames(className, {})
 
     return (
         <BaseButton type={type} color={color} variant={variant} value={value} onClick={onClick} size={size} className={buttonClass} radius={radius} isLoading={loading}>
