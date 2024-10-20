@@ -1,6 +1,5 @@
 // app/components/ThemeSwitcher.tsx
 "use client";
-
 import { MoonIcon } from "@/assets/Icons/MoonIcon";
 import { SunIcon } from "@/assets/Icons/SunIcon";
 import { Switch } from "@nextui-org/react";
