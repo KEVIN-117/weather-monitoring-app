@@ -2,14 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .theme-transition {
-  transition: background 2s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.5s ease, fill 2s ease, stroke 2s ease, background-color 2s ease, border-color 2s ease, box-shadow 2s ease;
+  transition: background 2s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.5s ease,
+    fill 2s ease, stroke 2s ease, background-color 2s ease, border-color 2s ease,
+    box-shadow 2s ease;
 }
-
 
 @layer utilities {
-  .large{
-    
+  .input_glassmorph {
+    backdrop-filter: blur(10px);
+
+    .warning {
+      background: rgba(255, 255, 0, 0.2);
+      border: 1px solid rgba(255, 255, 0, 0.3);
+    }
+
+    .info {
+      background: rgba(0, 255, 255, 0.2);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+
+    .primary {
+      background: rgba(0, 0, 255, 0.2);
+      border: 1px solid rgba(0, 0, 255, 0.3);
+    }
+
+    .secondary {
+      background: rgba(255, 0, 255, 0.2);
+      border: 1px solid rgba(255, 0, 255, 0.3);
+    }
+  }
+  .success {
+    background: rgba(0, 255, 0, 0.2);
+  }
+  .error {
+    background: rgba(255, 0, 0, 0.2) !important;
+  }
+  .image-bg {
+    background-image: url("../assets/descargar.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 }
+

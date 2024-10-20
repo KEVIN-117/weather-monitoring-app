@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Button } from '@/components/ui/atoms/Button';
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import Input from "@/components/ui/atoms/Input/Input";
 
 export default function Home() {
   return (
@@ -17,6 +18,18 @@ export default function Home() {
           Click me
         </Button>
         <ThemeSwitcher />
+
+        <Input
+          label="Name"
+          placeholder="Type your name"
+          radius="md"
+          variant="bordered"
+          isInvalid={false}
+          otherVariant="glassmorphism"
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+        />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
