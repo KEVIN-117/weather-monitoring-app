@@ -2,7 +2,7 @@
 
 import { ResponsiveContainer } from "recharts";
 import type{ IProps } from "./types/IProps";
-import {  XAxis, YAxis, Tooltip } from "recharts";
+import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 import { BarChart, Bar } from "recharts";
 
 // Datos predeterminados

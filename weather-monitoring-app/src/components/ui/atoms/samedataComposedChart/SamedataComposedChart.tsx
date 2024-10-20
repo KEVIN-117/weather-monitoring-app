@@ -1,40 +1,26 @@
 "use client";
 
-import {
-  ComposedChart,
-  Line,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
-import type { IProps } from "./types/IProps";
+import { ResponsiveContainer } from "recharts";
+import type{ IProps } from "./types/IProps";
+import {  Line, XAxis, YAxis, Tooltip } from "recharts";
+import { ComposedChart, Area } from "recharts";
 
+// Datos predeterminados
 const defaultData = [
-  { name: "Jan", uv: 4000, pv: 2400 },
-  { name: "Feb", uv: 3000, pv: 1398 },
-  { name: "Mar", uv: 2000, pv: 9800 },
+  { name: 'Jan', uv: 4000, pv: 2400, amt: 2400 },
+  { name: 'Feb', uv: 3000, pv: 1398, amt: 2210 },
+  { name: 'Mar', uv: 2000, pv: 9800, amt: 2290 },
 ];
 
 export function SamedataComposedChart({ data = defaultData }: IProps) {
   return (
-    <ResponsiveContainer width="100%" height={400}>
-      <ComposedChart
-        width={500}
-        height={400}
-        data={data}
-        margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
-      >
-        <CartesianGrid stroke="#f5f5f5" />
-        <XAxis dataKey="name" scale="band" />
+    <ResponsiveContainer width="100%" height={200}>
+      <ComposedChart data={data}>
+        <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Legend />
-        <Bar dataKey="uv" barSize={20} fill="#413ea0" />
-        <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+        <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+        <Area type="monotone" dataKey="uv" fill="#82ca9d" stroke="#82ca9d" />
       </ComposedChart>
     </ResponsiveContainer>
   );
