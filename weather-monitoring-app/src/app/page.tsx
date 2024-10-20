@@ -1,19 +1,26 @@
-"use client"
+"use client";
 import Image from "next/image";
-import { Button } from '@nextui-org/button';
+import { Button } from "@nextui-org/button";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
-
+import { Title } from "@/components/ui/atoms/title/Title";
 
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Button variant="solid" color="primary" onClick={() => {
-          alert("Elvis apaga tu cochinada")
-        }}>Click me</Button>
+        <Button
+          variant="solid"
+          color="primary"
+          onClick={() => {
+            alert("Elvis apaga tu cochinada");
+          }}
+        >
+          Click me
+        </Button>
         <ThemeSwitcher />
-
-        
+        <Title size="large" content="Hello, Liam Gallagher! " />
+        <Title size="middle" content="Recent test" />
+        <Title size="small" content="Blood cells" />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
