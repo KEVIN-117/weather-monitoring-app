@@ -36,7 +36,7 @@ export default function Home() {
             radius="full"
             loading
             icon={<MoonIcon />}
-            className="text-2xl"
+            className="text-2xl first-letter:uppercase"
             href="https://nextjs.org"
             target="_blank"
             rel="noopener noreferrer"
