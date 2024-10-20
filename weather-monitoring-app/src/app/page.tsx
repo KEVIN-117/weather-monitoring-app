@@ -18,9 +18,6 @@ export default function Home() {
           Click me
         </Button>
         <ThemeSwitcher />
-        <Title size="large" content="Hello, Liam Gallagher! " />
-        <Title size="middle" content="Recent test" />
-        <Title size="small" content="Blood cells" />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
