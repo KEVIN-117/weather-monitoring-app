@@ -93,8 +93,6 @@ const config: Config = {
             '900': '#00343bff',
             foreground: '#f3f5f7ff',
           },
-          gradientStart: '#0e1623',
-          gradientEnd: '#1b2838',
         }
 
       },
@@ -154,8 +152,6 @@ const config: Config = {
             '900': '#3f1315ff',
             foreground: '#0e1623ff',
           },
-          gradientStart: '#ffffff',
-          gradientEnd: '#e3e3e3',
         }
       }
     }
