@@ -4,7 +4,6 @@ export interface IProps extends React.ComponentProps<"input"> {
     label?: string;
     errors?: string[];
     isInvalid?: boolean;
-    type?: string;
     name?: string;
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -20,6 +19,8 @@ export interface IProps extends React.ComponentProps<"input"> {
     radius?: "none" | "md" | "sm" | "lg" | "full" | undefined;
     disable?: boolean;
     description?: string;
+    endContent?: React.ReactNode;
+    className?: string;
 }
 
 export interface FormErrors {
