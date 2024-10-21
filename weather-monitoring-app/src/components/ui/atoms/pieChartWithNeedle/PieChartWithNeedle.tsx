@@ -1,53 +1,87 @@
 "use client";
 
-import { ResponsiveContainer } from "recharts";
-import type{ IProps } from "./types/IProps";
-import { PieChart, Pie, Label } from "recharts";
+import type { IProps } from "./types/IProps";
 
-// Datos predeterminados
-const defaultData = [
-  { name: 'Jan', uv: 4000, pv: 2400, amt: 2400 },
-  { name: 'Feb', uv: 3000, pv: 1398, amt: 2210 },
-  { name: 'Mar', uv: 2000, pv: 9800, amt: 2290 },
+import { useEffect, useState } from "react";
+import { PieChart, Pie, Cell } from "recharts";
+
+const RADIAN: number = Math.PI / 180;
+const pieChartData: IProps["data"] = [
+  { name: "A", value: 80, color: "#ff0000" },
+  { name: "B", value: 45, color: "#00ff00" },
+  { name: "C", value: 25, color: "#0000ff" },
 ];
 
-export function PieChartWithNeedle({ data = defaultData }: IProps) {
-  const totalValue = data.reduce((acc, entry) => acc + entry.uv, 0);
-  const targetValue = data[0].uv;
-  const needleAngle = (targetValue / totalValue) * 180;
+const cx = 150;
+const cy = 200;
+const iR = 50;
+const oR = 100;
+const value = 50;
 
+const needle = (
+  value: number,
+  data: IProps["data"],
+  cx: number,
+  cy: number,
+  iR: number,
+  oR: number,
+  color: string
+): JSX.Element[] => {
+  let total = 0;
+  data.forEach((v) => {
+    total += v.value;
+  });
+
+  const ang = 180.0 * (1 - value / total);
+  const length = (iR + 2 * oR) / 3;
+  const sin = Math.sin(-RADIAN * ang);
+  const cos = Math.cos(-RADIAN * ang);
+  const r = 5;
+  const x0 = cx;
+  const y0 = cy;
+  const xba = x0 + r * sin;
+  const yba = y0 - r * cos;
+  const xbb = x0 - r * sin;
+  const ybb = y0 + r * cos;
+  const xp = x0 + length * cos;
+  const yp = y0 + length * sin;
+
+  return [
+    <circle key="circle" cx={x0} cy={y0} r={r} fill={color} stroke="none" />,
+    <path
+      key="path"
+      d={`M${xba} ${yba}L${xbb} ${ybb} L${xp} ${yp} L${xba} ${yba}`}
+      fill={color}
+    />,
+  ];
+};
+
+export function PieChartWithNeedle({ data = pieChartData }: IProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
   return (
-    <ResponsiveContainer width="100%" height={200}>
-      <PieChart>
-        <Pie
-          data={data}
-          dataKey="uv"
-          cx="50%"
-          cy="50%"
-          outerRadius={80}
-          fill="#8884d8"
-          startAngle={180}
-          endAngle={0}
-        />
-        {/* Aquí es donde se dibuja la aguja */}
-        <g transform="translate(100, 100)">
-          <line
-            x1="0"
-            y1="0"
-            x2={80 * Math.cos((needleAngle - 90) * (Math.PI / 180))}
-            y2={80 * Math.sin((needleAngle - 90) * (Math.PI / 180))}
-            stroke="#ff7300"
-            strokeWidth="3"
-          />
-        </g>
-        <Label
-          value={`Valor: ${data[0].uv}`}
-          position="center"
-          style={{ fontSize: '14px', fontWeight: 'bold' }}
-        />
-      </PieChart>
-    </ResponsiveContainer>
+    <PieChart width={400} height={500}>
+      <Pie
+        dataKey="value"
+        startAngle={180}
+        endAngle={0}
+        data={data}
+        cx={cx}
+        cy={cy}
+        innerRadius={iR}
+        outerRadius={oR}
+        fill="#8884d8"
+        stroke="none"
+      >
+        {data.map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={entry.color} />
+        ))}
+      </Pie>
+      {needle(value, data, cx, cy, iR, oR, "#d0d000")}
+    </PieChart>
   );
 }
-
-
