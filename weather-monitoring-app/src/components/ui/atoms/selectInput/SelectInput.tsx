@@ -37,21 +37,21 @@ export function SelectInput(props: IProps) {
       label={label}
       placeholder={placeholder}
       startContent={<FaClock />}
-      errors= {errors}
+      //errors= {errors}
       isInvalid={isInvalid}
       name={name}
       value={value}
       onChange={onChange}
-      onBlur={onBlur}
-      onFocus={onFocus}
+     // onBlur={onBlur}
+      //onFocus={onFocus}
       disabled={disabled}
       required={required}
       color={color}
       variant={variant}
-      otherVariant={otherVariant}
+    //  otherVariant={otherVariant}
       labelPlacement={labelPlacement}
       radius={radius}
-      disable={disable}
+      //disable={disable}
       description={description}
 
     >

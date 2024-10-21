@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Button } from '@/components/ui/atoms/Button';
+import { Button } from "@/components/ui/atoms/Button";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 export default function Home() {
