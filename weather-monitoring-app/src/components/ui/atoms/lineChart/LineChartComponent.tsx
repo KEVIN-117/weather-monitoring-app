@@ -19,7 +19,6 @@ export function LineChartComponent({ data = defaultData }: IProps) {
         <YAxis />
         <Tooltip />
         <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
       </LineChart>
     </ResponsiveContainer>
   );
