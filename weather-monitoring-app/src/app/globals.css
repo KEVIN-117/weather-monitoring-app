@@ -71,7 +71,11 @@
   }
 
   button {
-    @apply border dark:border-[#414c5f] !important;
+    @apply border dark:border-[#414c5f] light:border-none !important;
+  }
+
+  *{
+    scrollbar-width: none;
   }
 
   .set-border{
