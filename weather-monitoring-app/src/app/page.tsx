@@ -1,7 +1,7 @@
-"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/atoms/Button";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { Fortecast } from "@/components/ui/organisms/forecast/Fortecast";
 
 export default function Home() {
   return (
@@ -10,13 +10,11 @@ export default function Home() {
         <Button
           variant="solid"
           color="primary"
-          onClick={() => {
-            alert("Elvis apaga tu cochinada");
-          }}
         >
           Click me
         </Button>
         <ThemeSwitcher />
+        <Fortecast />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
