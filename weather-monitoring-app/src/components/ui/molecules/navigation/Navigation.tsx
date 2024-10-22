@@ -2,6 +2,7 @@
 import { Card, Tooltip } from "@nextui-org/react";
 import { IProps, NavItemProps } from "./types/IProps";
 import Link from "next/link";
+import { Button } from "../../atoms/Button";
 import { Logo } from "@/assets/Icons/Logo";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
@@ -33,7 +34,7 @@ export function Navigation(props: IProps) {
                     <ThemeSwitcher />
                 </footer>
             </Card>
-            <main className="flex-1 p-10">
+            <main className="flex-1">
                 {children}
             </main>
         </Card>
@@ -43,19 +44,20 @@ export function Navigation(props: IProps) {
 export function NavItem({ name, url, icon, className }: NavItemProps) {
     return (
         <Tooltip
-            placement={"right"}
-            offset={-9}
             content={name}
-            color="default"
-            showArrow
-            className="text-xl capitalize"
+            color="secondary"
         >
-            <Link
+            <Button
+                radius="full"
+                as={Link}
                 href={url}
+                color="primary"
+                variant="solid"
+
                 className={`${className} flex items-center justify-center min-w-[40px] min-h-[55px]`}
             >
                 {icon}
-            </Link>
+            </Button>
         </Tooltip>
     )
 }

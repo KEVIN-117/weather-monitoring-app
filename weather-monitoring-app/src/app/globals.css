@@ -77,14 +77,6 @@
   *{
     scrollbar-width: none;
   }
-
-  .set-border{
-    @apply border border-primary-900 dark:border-[#414c5f];
-  }
-
-  .set-border{
-    @apply border border-primary-900 dark:border-[#414c5f];
-  }
 }
 
 
