@@ -29,7 +29,7 @@ export const links: NavItemProps[] = [
 
 function Main({ children }: { children: React.ReactNode }) {
     return (
-        <Navigation className='' links={links} >
+        <Navigation className='p-10' links={links} >
             {children}
         </Navigation>
     )

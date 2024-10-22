@@ -34,7 +34,7 @@ export function Navigation(props: IProps) {
                     <ThemeSwitcher />
                 </footer>
             </Card>
-            <main className="flex-1">
+            <main className="flex-1 p-10">
                 {children}
             </main>
         </Card>

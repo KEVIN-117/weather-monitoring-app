@@ -1,19 +1,14 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/atoms/Button";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Fortecast } from "@/components/ui/organisms/forecast/Fortecast";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <section className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Button
-          variant="solid"
-          color="primary"
-        >
-          Click me
-        </Button>
-        <ThemeSwitcher />
+    <div className="font-[family-name:var(--font-geist-sans)]">
+      <section className="">
+        <Fortecast />
+
+
+
       </section>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
@@ -62,6 +57,7 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+    </div >
     </div >
   );
 }
