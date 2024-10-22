@@ -13,8 +13,8 @@ export function WeatherCard({ data, days }: { data: WeatherForecastData, days: n
 
     return (
         <Card isBlurred className="w-full max-w-4xl bg-default-100/50 dark:bg-default-100/50 backdrop-blur-md shadow-lg rounded-xl overflow-hidden set-border">
-            <CardHeader className="bg-default-100/50 dark:bg-default-100/50 p-6 flex justify-between items-center set-border">
-                <Title classname="text-4xl" content={`Tiempo en ${weatherData.location.name}`} size="large" />
+            <CardHeader className="bg-black/30 p-6 flex justify-between items-center">
+                <Title classname="text-3xl" content={`Tiempo en ${weatherData.location.name}`} size="large" />
                 <Title content={`${weatherData.location.region}, ${weatherData.location.country}`} size="middle" />
             </CardHeader>
             <CardBody className="p-6">
