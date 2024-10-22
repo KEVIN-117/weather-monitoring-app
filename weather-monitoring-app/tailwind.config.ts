@@ -62,34 +62,60 @@ const config: Config = {
       },
       light: {
         extend: "light",
+        // layout: {
+        //   radius: {
+        //     small: "5px",
+        //     medium: "8px",
+        //     large: "12px",
+        //   },
+        //   boxShadow: {
+        //     large: "0 0 20px 0 #0e1623ff",
+        //     medium: "0 0 10px 0 #0e1623ff",
+        //     small: "0 0 5px 0 #0e1623ff",
+        //   },
+        // },
+        // colors: {
+        //   background: "#f1ffdf",
+        //   primary: {
+        //     DEFAULT: '#84cc16ff', // Verde principal
+        //     50: '#f1ffdf',
+        //     100: '#ddf9b5',
+        //     200: '#c9f389',
+        //     300: '#b4ee5d',
+        //     400: '#a0e930',
+        //     500: '#86cf16',
+        //     600: '#67a10e',
+        //     700: '#497306',
+        //     800: '#2b4501',
+        //     900: '#0c1800',
+        //     foreground: '#0e1623ff',
+        //   },
+        // }
         layout: {
           radius: {
-            small: "5px",
-            medium: "8px",
-            large: "12px",
+            small: '5px',
+            medium: '7px',
+            large: '10px',
           },
-          boxShadow: {
-            large: "0 0 20px 0 #0e1623ff",
-            medium: "0 0 10px 0 #0e1623ff",
-            small: "0 0 5px 0 #0e1623ff",
-          },
+
         },
+
         colors: {
-          background: "#f1ffdf",
+          background: '#fafafb',
           primary: {
-            DEFAULT: '#84cc16ff', // Verde principal
-            50: '#f1ffdf',
-            100: '#ddf9b5',
-            200: '#c9f389',
-            300: '#b4ee5d',
-            400: '#a0e930',
-            500: '#86cf16',
-            600: '#67a10e',
-            700: '#497306',
-            800: '#2b4501',
-            900: '#0c1800',
-            foreground: '#0e1623ff',
+            DEFAULT: '#fe265c',
+            '50': '#fff0f2',
+            '100': '#ffe2e7',
+            '200': '#ffcad5',
+            '300': '#ff9fb3',
+            '400': '#ff698c',
+            '500': '#fe265c',
+            '600': '#ec1253',
+            '700': '#c80846',
+            '800': '#a70a41',
+            '900': '#8f0c3e',
           },
+
         }
       }
     }
