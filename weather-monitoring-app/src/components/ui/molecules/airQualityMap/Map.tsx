@@ -139,8 +139,6 @@ export function Map() {
     <div className="flex justify-center w-full">
       <div className="grid grid-cols-1 ">
         <div className="flex flex-col gap-4">
-          <h1 className="text-2xl font-bold">Mapa de ubicación</h1>
-
           {loading && <div>Loading location...</div>}
           {error && <div className="text-red-500">{error}</div>}
           <div className="flex gap-4 flex-wrap">
@@ -188,7 +186,7 @@ export function Map() {
           </div>
           <div
             id="map"
-            className="flex-grow w-[80vw] h-[80vh] border rounded"
+            className="flex-grow w-[85vw] h-[85vh] border rounded"
           // style={{ minHeight: "400px" }}
           />
         </div>
