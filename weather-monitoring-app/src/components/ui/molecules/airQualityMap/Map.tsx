@@ -110,7 +110,7 @@ export function Map() {
     // Add new marker
     L.marker([newLat, newLng])
       .addTo(mapRef.current)
-      .bindPopup('<a href="/profile">mas información</a>')
+      .bindPopup('<a href="/profile">mas información </a>')
       .openPopup();
   }, [lat, lng]);
 
