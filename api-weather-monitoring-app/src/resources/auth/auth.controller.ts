@@ -6,14 +6,28 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
+import { JwtAuthGuardTsGuard } from 'src/guards/jwt-auth.guard.ts/jwt-auth.guard.ts.guard';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
+
+
+  @Post('login')
+  async login(@Request() req) {
+    return this.authService.lo  gin(req.user);
+  }
+
+  @UseGuards(JwtAuthGuardTsGuard)
+  @Post('profile')
+  getProfile(@Request() req) {
+    return req.user;
+  }
 
   @Post()
   create(@Body() createAuthDto: CreateAuthDto) {
