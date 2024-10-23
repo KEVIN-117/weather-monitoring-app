@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import { Card } from "@nextui-org/react";
 import { ContainerBarChars } from "@/components/ui/atoms/containerBarChars/ContainerBarChars";
 import { PositiveAndNegativeBarChart } from "@/components/ui/atoms/positiveAndNegativeBarChart/PositiveAndNegativeBarChart";
 import { PieChartWithNeedle } from "@/components/ui/atoms/pieChartWithNeedle/PieChartWithNeedle";

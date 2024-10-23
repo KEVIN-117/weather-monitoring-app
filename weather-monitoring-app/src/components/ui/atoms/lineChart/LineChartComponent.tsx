@@ -3,6 +3,7 @@
 import { ResponsiveContainer } from "recharts";
 import { IProps } from "./types/IProps";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
+import { Card } from "@nextui-org/react";
 
 // Datos predeterminados
 const defaultData = [
@@ -39,18 +40,22 @@ export function LineChartComponent({ data }: IProps) {
   }
 
   return (
-    <ResponsiveContainer className="h-auto" >
-      <LineChart data={data} width={500} height={300}>
-        <XAxis dataKey="time" />
-        <YAxis />
-        <Tooltip contentStyle={{
-          backgroundColor: '#000',
-          opacity: '0.8',
-          color: '#fff'
-        }} />
-        <Line type="monotone" dataKey="humidity" stroke="#8884d8" strokeWidth={10} />
-      </LineChart>
-    </ResponsiveContainer>
+    <Card isBlurred className="w-full max-w-4xl bg-default-100/50 dark:bg-default-100/50 backdrop-blur-md shadow-lg rounded-xl overflow-hidden set-border">
+
+
+      <ResponsiveContainer className="h-auto" >
+        <LineChart data={data} width={500} height={300}>
+          <XAxis dataKey="time" />
+          <YAxis />
+          <Tooltip contentStyle={{
+            backgroundColor: '#000',
+            opacity: '0.8',
+            color: '#fff'
+          }} />
+          <Line type="monotone" dataKey="humidity" stroke="#8884d8" strokeWidth={10} />
+        </LineChart>
+      </ResponsiveContainer>
+    </Card>
   );
 }
 
