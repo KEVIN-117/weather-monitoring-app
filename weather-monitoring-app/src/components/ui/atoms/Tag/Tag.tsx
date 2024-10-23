@@ -20,6 +20,17 @@ const Tag: React.FC<ITagProps> = ({ icon = <LuPill style={{ color: '#90EE90', fo
 
 export default Tag;
 
+/* ejemplo
+import Tag from "@/components/ui/atoms/Tag/Tag";
+import { LuPill } from 'react-icons/lu';
+
+<Tag
+        title="Lisinopril"
+          subtitle="Once daily * Take with food"
+        icon={<LuPill style={{ color: '#90EE90', fontSize: '35px', paddingLeft: '2px' }} />}
+        color="#6E6E6E"
+        />
+ */
 
 
 
