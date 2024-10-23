@@ -45,5 +45,31 @@ CREATE TABLE "refresh_tokens" (
     CONSTRAINT "refresh_tokens_pkey" PRIMARY KEY ("id")
 );
 
+--Create Table
+
+CREATE TABLE Locations (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    department VARCHAR(100),
+    city VARCHAR(100),
+    date DATE NOT NULL,
+    latitude FLOAT,
+    longitude FLOAT
+);
+
+--Create Table 
+CREATE TABLE AirQualityData (
+    id SERIAL PRIMARY KEY,
+    timestamp TIMESTAMP NOT NULL,
+    aqi INTEGER NOT NULL,
+    pm10 FLOAT,
+    pm2_5 FLOAT,
+    no2 FLOAT,
+    o3 FLOAT,
+    location_id INTEGER REFERENCES Locations(id)
+);
+
+
+
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
