@@ -1,11 +1,10 @@
 import React from "react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { ContainerBarChars } from "@/components/ui/atoms/containerBarChars/ContainerBarChars";
-import { PositiveAndNegativeBarChart } from "@/components/ui/atoms/positiveAndNegativeBarChart/PositiveAndNegativeBarChart";
+import { PositiveAndNegativeBarChartComponent } from "@/components/ui/atoms/positiveAndNegativeBarChart/PositiveAndNegativeBarChartComponent";
 import { PieChartWithNeedle } from "@/components/ui/atoms/pieChartWithNeedle/PieChartWithNeedle";
 import { SamedataComposedChart } from "@/components/ui/atoms/samedataComposedChart/SamedataComposedChart";
-import { LineChartComponent } from "@/components/ui/atoms/lineChart/LineChartComponent";
-
+import { LineChart } from "@/components/ui/organisms/lineChart/LineChart";
 function page() {
   const defaultData = [
     { name: "Jan", uv: 4000, pv: 2400, amt: 2400 },
@@ -21,10 +20,9 @@ function page() {
   return (
     <div>
       <Card className="py-4 bg-stone-800/25" isBlurred >
-        hola mundo desde un card y andate a la ... Kevin
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
-          <ContainerBarChars>   <LineChartComponent data={defaultData} /></ContainerBarChars>
-          <ContainerBarChars>   <PositiveAndNegativeBarChart data={defaultData} /> </ContainerBarChars>
+          <LineChart />
+          <PositiveAndNegativeBarChartComponent data={[]} /> 
           <ContainerBarChars>   <PieChartWithNeedle data={dataPie} /></ContainerBarChars>
           <ContainerBarChars>  <SamedataComposedChart data={defaultData} /></ContainerBarChars>
         </div>
