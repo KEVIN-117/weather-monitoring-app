@@ -3,8 +3,6 @@ import React, { useEffect, useState, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { ILocation, AirQualityItem } from "./types/IProps";
-import { Card } from "@nextui-org/react";
-import { CardBody } from "@nextui-org/react";
 
 export function Map() {
   const [location, setLocation] = useState<ILocation>({});
@@ -13,6 +11,8 @@ export function Map() {
   const [lng, setLng] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+
+
 
   const airQualityData = [
     { param: "CO", value: 821.8, status: "Bueno" },
@@ -110,7 +110,7 @@ export function Map() {
     // Add new marker
     L.marker([newLat, newLng])
       .addTo(mapRef.current)
-      .bindPopup("Te encuentras aqui")
+      .bindPopup('<a href="/profile">mas información</a>')
       .openPopup();
   }, [lat, lng]);
 
@@ -148,19 +148,19 @@ export function Map() {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="flex justify-center w-full">
+      <div className="grid grid-cols-1 ">
         <div className="flex flex-col gap-4">
-          <h1 className="text-2xl font-bold">Location Map</h1>
+          <h1 className="text-2xl font-bold">Mapa de ubicación</h1>
 
           {loading && <div>Loading location...</div>}
           {error && <div className="text-red-500">{error}</div>}
 
           <button
             onClick={getUserLocation}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600 w-64"
           >
-            Get Current Location
+            Obtener ubicación actual
           </button>
 
           <div className="flex gap-4 flex-wrap">
@@ -197,9 +197,9 @@ export function Map() {
 
           <button
             onClick={handleSearch}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            className="bg-green-500 px-4 py-2 rounded hover:bg-green-600 w-64"
           >
-            Search Location
+            Buscar ubicación
           </button>
 
           <div
@@ -208,34 +208,6 @@ export function Map() {
             style={{ minHeight: "400px" }}
           />
         </div>
-
-        <Card className="h-fit">
-          <CardBody className="p-4">
-            <h2 className="text-xl font-semibold mb-4">
-              Calidad del Aire Detallada
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {airQualityData.map((item) => (
-                <div
-                  key={item.param}
-                  className={`p-3 rounded-lg border ${getStatusColor(
-                    item.status
-                  )} transition-colors duration-200`}
-                >
-                  <div className="flex justify-between items-center">
-                    <p className="font-medium">{item.param}</p>
-                    <span className="text-sm px-2 py-1 rounded">
-                      {item.status}
-                    </span>
-                  </div>
-                  <p className="text-lg font-semibold mt-1">
-                    {item.value.toFixed(2)} μg/m³
-                  </p>
-                </div>
-              ))}
-            </div>
-          </CardBody>
-        </Card>
       </div>
     </div>
   );
