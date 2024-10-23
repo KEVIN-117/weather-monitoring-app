@@ -1,39 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Select, SelectItem } from "@nextui-org/react";
 import { IProps } from "./types/IProps";
 import { Data } from "./data";
 import { FaClock } from "react-icons/fa";
-import { GiAlarmClock } from "react-icons/gi";
-import { FcAlarmClock } from "react-icons/fc";
 
 export function SelectInput(props: IProps) {
   const {
     className,
-    defaultSelectedKeys,
     label,
     placeholder,
-    startContent,
-    errors,
     isInvalid,
     name,
     value,
     onChange,
-    onBlur,
-    onFocus,
     disabled,
     required,
     color,
     variant,
-    otherVariant,
     labelPlacement,
     radius,
-    disable,
     description,
   } = props;
   return (
     <Select
-      className={`max-w-xs ${className}`}
-      defaultSelectedKeys={defaultSelectedKeys}
+      className={`w-[20%] ${className}`}
+      defaultSelectedKeys={Data[0].label}
       label={label}
       placeholder={placeholder}
       startContent={<FaClock />}
@@ -53,7 +44,7 @@ export function SelectInput(props: IProps) {
       radius={radius}
       //disable={disable}
       description={description}
-
+      
     >
       {Data.map((data) => (
         <SelectItem key={data.key}>{data.label}</SelectItem>

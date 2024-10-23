@@ -19,6 +19,7 @@ export interface WeatherForecastData {
     }
     forecast: {
         forecastday: Array<{
+            hour: any
             date: string
             day: {
                 maxtemp_c: number
