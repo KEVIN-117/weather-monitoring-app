@@ -2,7 +2,6 @@
 import { Card, Tooltip } from "@nextui-org/react";
 import { IProps, NavItemProps } from "./types/IProps";
 import Link from "next/link";
-import { Button } from "../../atoms/Button";
 import { Logo } from "@/assets/Icons/Logo";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
@@ -44,20 +43,19 @@ export function Navigation(props: IProps) {
 export function NavItem({ name, url, icon, className }: NavItemProps) {
     return (
         <Tooltip
+            placement={"right"}
+            offset={-9}
             content={name}
-            color="secondary"
+            color="default"
+            showArrow
+            className="text-xl capitalize"
         >
-            <Button
-                radius="full"
-                as={Link}
+            <Link
                 href={url}
-                color="primary"
-                variant="solid"
-
                 className={`${className} flex items-center justify-center min-w-[40px] min-h-[55px]`}
             >
                 {icon}
-            </Button>
+            </Link>
         </Tooltip>
     )
 }

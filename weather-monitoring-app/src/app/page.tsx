@@ -7,6 +7,8 @@ export default function Home() {
       <section className="">
         <Fortecast />
           
+        
+        <Fortecast />
 
       </section>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
@@ -56,6 +58,6 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
-    </div >
+    </div>
   );
 }

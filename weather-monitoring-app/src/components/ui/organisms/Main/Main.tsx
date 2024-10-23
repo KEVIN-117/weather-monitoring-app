@@ -2,7 +2,7 @@ import React from 'react'
 import { Navigation } from '../../molecules/navigation/Navigation'
 import { NavItemProps } from '../../molecules/navigation/types/IProps'
 import { ChartColumn, Layers, LayoutDashboard, NotepadText } from 'lucide-react'
-
+import { Map } from 'lucide-react';
 
 export const links: NavItemProps[] = [
     {
@@ -22,9 +22,15 @@ export const links: NavItemProps[] = [
     },
     {
         name: "Profile",
-        url: "/profile",
+        url: "/dashboard/statistics",
         icon: <ChartColumn />
+    },
+    {
+        name: "Map",
+        url: "/dashboard/Map",
+        icon: <Map />
     }
+
 ]
 
 function Main({ children }: { children: React.ReactNode }) {
