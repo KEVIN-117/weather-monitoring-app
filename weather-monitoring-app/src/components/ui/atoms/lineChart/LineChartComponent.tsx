@@ -41,8 +41,6 @@ export function LineChartComponent({ data }: IProps) {
 
   return (
     <Card isBlurred className="w-full max-w-4xl bg-default-100/50 dark:bg-default-100/50 backdrop-blur-md shadow-lg rounded-xl overflow-hidden set-border">
-
-
       <ResponsiveContainer className="h-auto" >
         <LineChart data={data} width={500} height={300}>
           <XAxis dataKey="time" />
