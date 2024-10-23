@@ -1,36 +1,37 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Endpoints
 
-First, run the development server:
+
+- Current time
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+curl -X 'GET' \
+    'https://api.weatherapi.com/v1/current.json?q=40.624004,-73.954722&alerts=yes&key=<your api key>' \
+    -H 'accept: application/json'
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Future time
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+curl -X 'GET' \
+  'https://api.weatherapi.com/v1/future.json?q=40.624004%2C-73.954722&dt=2024-12-25&lang=es&key=<your api key>' \
+  -H 'accept: application/json'
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Forecast --:> Pronóstico
 
-## Learn More
+```bash
+curl -X 'GET' \
+  'https://api.weatherapi.com/v1/forecast.json?q=40.624004%2C-73.954722&days=14&dt=2024-11-14&alerts=yes&aqi=yes&key=<your api key>' \
+  -H 'accept: application/json'
 
-To learn more about Next.js, take a look at the following resources:
+curl -X 'GET' \
+    'https://api.weatherapi.com/v1/forecast.json?q=-1.0991%2C127.4181&days=14&alerts=yes&aqi=yes&key=<your api key>' \
+    -H 'accept: application/json'
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+curl -X 'GET' \
+  'https://api.weatherapi.com/v1/forecast.json?q=47.1301,-119.2781&days=14&alerts=yes&aqi=yes&hour=24&tp=1&key=<your api key>' \
+  -H 'accept: application/json'
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
