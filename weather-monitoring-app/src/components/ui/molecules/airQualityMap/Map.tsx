@@ -2,37 +2,19 @@
 import React, { useEffect, useState, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { ILocation, AirQualityItem } from "./types/IProps";
+import { ILocation } from "./types/IProps";
+import { useRouter } from "next/navigation";
+
 
 export function Map() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [location, setLocation] = useState<ILocation>({});
+  const router = useRouter();
   const mapRef = useRef<L.Map | null>(null);
   const [lat, setLat] = useState<string>("");
   const [lng, setLng] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
-
-
-
-  const airQualityData = [
-    { param: "CO", value: 821.8, status: "Bueno" },
-    { param: "NO2", value: 4.25, status: "Bueno" },
-    { param: "O3", value: 75.0, status: "No saludable" },
-    { param: "SO2", value: 0.56, status: "Bueno" },
-    { param: "PM2_5", value: 3.88, status: "Bueno" },
-    { param: "PM10", value: 9.55, status: "Bueno" },
-  ];
-
-  const getStatusColor = (status: any) => {
-    switch (status) {
-      case "No saludable":
-        return "bg-red-100 border-red-300";
-      case "Bueno":
-        return "bg-green-100 border-green-300";
-      default:
-        return "bg-gray-100 border-gray-300";
-    }
-  };
 
   const getUserLocation = () => {
     setLoading(true);
@@ -72,7 +54,7 @@ export function Map() {
   // Initialize map only once
   useEffect(() => {
     if (!mapRef.current) {
-      mapRef.current = L.map("map").setView([0, 0], 13);
+      mapRef.current = L.map("map").setView([0, 0], 2);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -147,6 +129,12 @@ export function Map() {
     }
   };
 
+  mapRef.current?.on("click", (e) => {
+    const { lat, lng } = e.latlng;
+    router.push(`/dashboard/Map/details?lat=${lat}&lng=${lng}`);
+  });
+
+
   return (
     <div className="flex justify-center w-full">
       <div className="grid grid-cols-1 ">
@@ -155,16 +143,14 @@ export function Map() {
 
           {loading && <div>Loading location...</div>}
           {error && <div className="text-red-500">{error}</div>}
-
-          <button
-            onClick={getUserLocation}
-            className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600 w-64"
-          >
-            Obtener ubicación actual
-          </button>
-
           <div className="flex gap-4 flex-wrap">
-            <div className="flex flex-col">
+            <button
+              onClick={getUserLocation}
+              className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600 w-64"
+            >
+              Obtener ubicación actual
+            </button>
+            <div className="flex items-center gap-4">
               <label htmlFor="lat" className="mb-1">
                 Latitud:
               </label>
@@ -179,7 +165,7 @@ export function Map() {
               />
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex items-center gap-4">
               <label htmlFor="lng" className="mb-1">
                 Longitud:
               </label>
@@ -193,19 +179,17 @@ export function Map() {
                 required
               />
             </div>
+            <button
+              onClick={handleSearch}
+              className="bg-green-500 px-4 py-2 rounded hover:bg-green-600 w-64"
+            >
+              Buscar ubicación
+            </button>
           </div>
-
-          <button
-            onClick={handleSearch}
-            className="bg-green-500 px-4 py-2 rounded hover:bg-green-600 w-64"
-          >
-            Buscar ubicación
-          </button>
-
           <div
             id="map"
-            className="flex-grow w-full border rounded"
-            style={{ minHeight: "400px" }}
+            className="flex-grow w-[80vw] h-[80vh] border rounded"
+          // style={{ minHeight: "400px" }}
           />
         </div>
       </div>

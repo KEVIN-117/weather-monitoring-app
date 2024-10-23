@@ -1,3 +1,6 @@
 export interface IProps {
-    data: any[]; 
-  }
+  data: {
+    time: string;
+    humidity: number;
+  }[]
+}

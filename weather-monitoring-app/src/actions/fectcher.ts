@@ -21,8 +21,8 @@ export async function getFetcher<T>(config: IProps) {
         const URL = env.baseUrl
         const {url, query, location} = config
         const fullUrl = `${URL}/${url}?q=${location}${query}&lang=es&key=${token}`        
-        const { data } = await axiosInstance.get<T>(fullUrl)
-    
+        const { data } = await axiosInstance.get<T>(fullUrl)       
+
         return {
             data,
             error: null
