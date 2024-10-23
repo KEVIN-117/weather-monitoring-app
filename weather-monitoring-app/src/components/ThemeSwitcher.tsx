@@ -20,8 +20,7 @@ export function ThemeSwitcher() {
     }
 
     return (
-        <div>
-            The current theme is: {theme}
+        <div className="-rotate-90">
             <Switch
                 defaultSelected
                 size="lg"
@@ -35,7 +34,6 @@ export function ThemeSwitcher() {
                 }
                 onClick={handlerChangeTheme}
             >
-                Dark mode
             </Switch>
         </div>
     )
