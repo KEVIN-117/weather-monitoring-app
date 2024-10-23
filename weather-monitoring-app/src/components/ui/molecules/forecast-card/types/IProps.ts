@@ -23,6 +23,7 @@ export interface WeatherForecastData {
             day: {
                 maxtemp_c: number
                 mintemp_c: number
+                avghumidity: number
                 condition: {
                     text: string
                     icon: string

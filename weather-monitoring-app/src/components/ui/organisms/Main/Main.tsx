@@ -17,6 +17,12 @@ export const links: NavItemProps[] = [
     },
     {
         name: "Estadisticas",
+        name: "Contact",
+        url: "/contact",
+        icon: <Layers />
+    },
+    {
+        name: "statistics",
         url: "/dashboard/statistics",
         icon: <ChartColumn />
     },

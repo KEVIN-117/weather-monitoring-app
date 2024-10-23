@@ -1,3 +1,6 @@
 export interface IProps {
-    data: any[];
-  }
+  data?: Array<{
+      name: string;  // Fecha del día
+      avgHumidity: number;  // Humedad promedio del día
+  }>;
+}
