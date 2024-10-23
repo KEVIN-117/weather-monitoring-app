@@ -21,7 +21,7 @@ export const links: NavItemProps[] = [
         icon: <Layers />
     },
     {
-        name: "Profile",
+        name: "statistics",
         url: "/dashboard/statistics",
         icon: <ChartColumn />
     },

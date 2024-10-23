@@ -4,6 +4,7 @@ import { Droplets, Wind, ThermometerSun } from "lucide-react"
 import { Title } from "../../atoms/title/Title"
 import { formatDate, getAirQualityColor, getAirQualityLabel, getAirQualityStatus } from "./utils"
 import { WeatherForecastData } from "./types/IProps"
+import { SamedataComposedChart } from "../../atoms/samedataComposedChart/SamedataComposedChart"
 
 
 export function WeatherCard({ data, days }: { data: WeatherForecastData, days: number }) {
@@ -95,6 +96,7 @@ export function WeatherCard({ data, days }: { data: WeatherForecastData, days: n
                     </div>
                 </div>
             </CardBody>
+            <SamedataComposedChart/>
         </Card>
     )
 }
