@@ -8,12 +8,12 @@ export default function Home() {
     <div className="font-[family-name:var(--font-geist-sans)]">
       <section className="">
         <Fortecast />
-        <Tag 
-                title="Lisinopril" 
-                subtitle="Once daily * Take with food" 
-                icon={<LuPill style={{ color: '#90EE90', fontSize: '25px', paddingLeft: '2px' }} />} 
-                color="#6E6E6E" 
-            />
+        <Tag
+          title="Lisinopril"
+          subtitle="Once daily * Take with food"
+          icon={<LuPill style={{ color: '#90EE90', fontSize: '35px', paddingLeft: '2px' }} />}
+          color="#6E6E6E"
+        />
 
       </section>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
