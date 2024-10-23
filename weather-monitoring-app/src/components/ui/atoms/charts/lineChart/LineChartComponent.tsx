@@ -40,9 +40,9 @@ export function LineChartComponent({ data }: IProps) {
   }
 
   return (
-    <Card isBlurred className="w-full max-w-4xl bg-default-100/50 dark:bg-default-100/50 backdrop-blur-md shadow-lg rounded-xl overflow-hidden set-border">
-      <ResponsiveContainer className="h-auto" >
-        <LineChart data={data} width={500} height={300}>
+    <Card isBlurred className="w-full max-w-4xl bg-default-100/50 dark:bg-default-100/50 backdrop-blur-md shadow-lg rounded-xl overflow-hidden set-border p-10">
+      <ResponsiveContainer className={"set-border"} >
+        <LineChart data={data} className="w-full h-full">
           <XAxis dataKey="time" />
           <YAxis />
           <Tooltip contentStyle={{
@@ -54,6 +54,7 @@ export function LineChartComponent({ data }: IProps) {
         </LineChart>
       </ResponsiveContainer>
     </Card>
+
   );
 }
 
