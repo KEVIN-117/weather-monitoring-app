@@ -1,13 +1,19 @@
 import Image from "next/image";
 import { Fortecast } from "@/components/ui/organisms/forecast/Fortecast";
+import Tag from "@/components/ui/atoms/Tag/Tag";
+import { LuPill } from 'react-icons/lu';
 
 export default function Home() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <section className="">
         <Fortecast />
-
-
+        <Tag 
+                title="Lisinopril" 
+                subtitle="Once daily * Take with food" 
+                icon={<LuPill style={{ color: '#90EE90', fontSize: '25px', paddingLeft: '2px' }} />} 
+                color="#6E6E6E" 
+            />
 
       </section>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
