@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigation } from '../../molecules/navigation/Navigation'
 import { NavItemProps } from '../../molecules/navigation/types/IProps'
-import { ChartColumn, LayoutDashboard, NotepadText } from 'lucide-react'
+import { ChartColumn, Layers, LayoutDashboard, NotepadText } from 'lucide-react'
 import { Map } from 'lucide-react';
 
 export const links: NavItemProps[] = [
@@ -16,7 +16,6 @@ export const links: NavItemProps[] = [
         icon: <NotepadText />
     },
     {
-        name: "Estadisticas",
         name: "Contact",
         url: "/contact",
         icon: <Layers />
