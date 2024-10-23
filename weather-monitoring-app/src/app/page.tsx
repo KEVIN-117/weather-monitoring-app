@@ -6,8 +6,7 @@ export default function Home() {
     <div className="font-[family-name:var(--font-geist-sans)]">
       <section className="">
         <Fortecast />
-
-
+        
 
       </section>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
