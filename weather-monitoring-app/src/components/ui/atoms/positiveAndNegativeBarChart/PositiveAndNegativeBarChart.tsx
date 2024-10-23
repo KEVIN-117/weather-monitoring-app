@@ -1,27 +1,35 @@
-"use client";
+"use server";
 
-import { ResponsiveContainer } from "recharts";
-import type{ IProps } from "./types/IProps";
-import {  XAxis, YAxis, Tooltip } from "recharts";
-import { BarChart, Bar } from "recharts";
+import { PositiveAndNegativeBarChartComponent } from "./PositiveAndNegativeBarChartComponent";
+import { getData } from "../../organisms/forecast/action/get-action";
+import { HourlyForecast } from "@/components/ui/organisms/lineChart/types/IProps";
 
-// Datos predeterminados
-const defaultData = [
-  { name: 'Jan', uv: 4000, pv: 2400, amt: 2400 },
-  { name: 'Feb', uv: 3000, pv: 1398, amt: 2210 },
-  { name: 'Mar', uv: 2000, pv: 9800, amt: 2290 },
-];
+interface FortecastProps {
+  lat?: string;
+  lon?: string;
+}
 
-export function PositiveAndNegativeBarChart({ data = defaultData }: IProps) {
+interface BarChartProps {
+  time: string;
+  maxtemp_c: number;
+  mintemp_c: number;
+}
+
+export async function PositiveAndNegativeBarChart({ lat, lon }: FortecastProps) {
+  const LAT = lat || "-19.594080";
+  const LON = lon || "-65.748528";
+  const data = await getData(5, `${LAT},${LON}`);
+  console.log(data?.forecast.forecastday[0].date);
+
+  const barChartData = data?.forecast.forecastday[0].hour.map((hour: HourlyForecast) => ({
+    time: hour.time.split(" ")[1].slice(0, 7),
+    maxtemp_c: hour.temp_c + 2, // Simulación para máximo y mínimo
+    mintemp_c: hour.temp_c - 2,
+  })) as BarChartProps[];
+
   return (
-    <ResponsiveContainer width="100%" height={200}>
-      <BarChart data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Bar dataKey="pv" fill="#8884d8" />
-        <Bar dataKey="uv" fill="#82ca9d" />
-      </BarChart>
-    </ResponsiveContainer>
+    <>
+      <PositiveAndNegativeBarChartComponent data={barChartData} />
+    </>
   );
 }

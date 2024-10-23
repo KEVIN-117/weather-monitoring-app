@@ -1,12 +1,10 @@
 import React from "react";
-import { Card } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { ContainerBarChars } from "@/components/ui/atoms/containerBarChars/ContainerBarChars";
-import { PositiveAndNegativeBarChart } from "@/components/ui/atoms/positiveAndNegativeBarChart/PositiveAndNegativeBarChart";
+import { PositiveAndNegativeBarChartComponent } from "@/components/ui/atoms/positiveAndNegativeBarChart/PositiveAndNegativeBarChartComponent";
 import { PieChartWithNeedle } from "@/components/ui/atoms/pieChartWithNeedle/PieChartWithNeedle";
 import { SamedataComposedChart } from "@/components/ui/atoms/samedataComposedChart/SamedataComposedChart";
-import { LineChartComponent } from "@/components/ui/atoms/lineChart/LineChartComponent";
-import Header from "@/components/ui/atoms/header/header";
-
+import { LineChart } from "@/components/ui/organisms/lineChart/LineChart";
 function page() {
   const defaultData = [
     { name: "Jan", uv: 4000, pv: 2400, amt: 2400 },
@@ -21,21 +19,12 @@ function page() {
   ];
   return (
     <div>
-      <Header size="large" title="Estadisticas de la pagina" description="Esta es la pagina de estadisticas" />
-      <Card className="py-4 bg-stone-800/25 shadow-none" isBlurred >
+      <Card className="py-4 bg-stone-800/25" isBlurred >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
-          <ContainerBarChars>
-            <LineChartComponent data={defaultData} />
-          </ContainerBarChars>
-          <ContainerBarChars>
-            <PositiveAndNegativeBarChart data={defaultData} />
-          </ContainerBarChars>
-          <ContainerBarChars>
-            <PieChartWithNeedle data={dataPie} />
-          </ContainerBarChars>
-          <ContainerBarChars>
-            <SamedataComposedChart data={defaultData} />
-          </ContainerBarChars>
+          <LineChart />
+          <PositiveAndNegativeBarChartComponent data={[]} /> 
+          <ContainerBarChars>   <PieChartWithNeedle data={dataPie} /></ContainerBarChars>
+          <ContainerBarChars>  <SamedataComposedChart data={defaultData} /></ContainerBarChars>
         </div>
       </Card>
     </div>
