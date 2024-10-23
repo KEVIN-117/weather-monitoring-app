@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { Fortecast } from "@/components/ui/organisms/forecast/Fortecast";
-
+import Header from "@/components/ui/atoms/header/header";
 export default function Home() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <section className="">
+        <Fortecast />
+          
         
         <Fortecast />
 
