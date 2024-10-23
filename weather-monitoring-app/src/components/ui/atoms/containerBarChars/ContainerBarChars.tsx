@@ -9,7 +9,7 @@ import { Title } from "../title/Title";
 export function ContainerBarChars(props: IProps) {
     const { children } = props;
       return (
-        <Card className="">
+        <Card className="bg-default-100/50 dark:bg-default-100/50 shadow-none set-border" >
           <CardHeader className="flex gap-3">
             <div className="flex flex-row items-center justify-between space-x-9">
               <Title size="small" content="Heart rate"></Title>
