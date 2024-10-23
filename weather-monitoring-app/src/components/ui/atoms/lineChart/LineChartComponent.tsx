@@ -6,19 +6,49 @@ import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 
 // Datos predeterminados
 const defaultData = [
-  { name: 'Jan', uv: 4000, pv: 2400, amt: 2400 },
-  { name: 'Feb', uv: 3000, pv: 1398, amt: 2210 },
-  { name: 'Mar', uv: 2000, pv: 9800, amt: 2290 },
-];
+  { time: '3:00:00', humidity: 87 },
+  { time: '4:00:00', humidity: 93 },
+  { time: '5:00:00', humidity: 96 },
+  { time: '6:00:00', humidity: 98 },
+  { time: '7:00:00', humidity: 98 },
+  { time: '8:00:00', humidity: 96 },
+  { time: '9:00:00', humidity: 96 },
+  { time: '10:00:00', humidity: 96 },
+  { time: '11:00:00', humidity: 85 },
+  { time: '12:00:00', humidity: 95 },
+  { time: '1:00:00', humidity: 94 },
+  { time: '2:00:00', humidity: 93 },
+  { time: '3:00:00', humidity: 82 },
+  { time: '4:00:00', humidity: 62 },
+  { time: '5:00:00', humidity: 49 },
+  { time: '6:00:00', humidity: 41 },
+  { time: '7:00:00', humidity: 39 },
+  { time: '8:00:00', humidity: 41 },
+  { time: '9:00:00', humidity: 49 },
+  { time: '10:00:00', humidity: 52 },
+  { time: '11:00:00', humidity: 56 },
+  { time: '12:00:00', humidity: 69 },
+  { time: '1:00:00', humidity: 75 },
+  { time: '2:00:00', humidity: 57 }
+]
 
-export function LineChartComponent({ data = defaultData }: IProps) {
+export function LineChartComponent({ data }: IProps) {
+
+  if (!data || data.length === 0) {
+    data = defaultData
+  }
+
   return (
-    <ResponsiveContainer width="100%" height={200}>
+    <ResponsiveContainer className="h-auto" >
       <LineChart data={data} width={500} height={300}>
-        <XAxis dataKey="name" />
+        <XAxis dataKey="time" />
         <YAxis />
-        <Tooltip />
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+        <Tooltip contentStyle={{
+          backgroundColor: '#000',
+          opacity: '0.8',
+          color: '#fff'
+        }} />
+        <Line type="monotone" dataKey="humidity" stroke="#8884d8" strokeWidth={10} />
       </LineChart>
     </ResponsiveContainer>
   );

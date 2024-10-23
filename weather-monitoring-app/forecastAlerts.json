@@ -3806,52 +3806,7 @@
             {
                 "date": "2024-10-25",
                 "date_epoch": 1729814400,
-                "day": {
-                    "maxtemp_c": 15.4,
-                    "maxtemp_f": 59.8,
-                    "mintemp_c": 2.7,
-                    "mintemp_f": 36.9,
-                    "avgtemp_c": 8.2,
-                    "avgtemp_f": 46.8,
-                    "maxwind_mph": 9.4,
-                    "maxwind_kph": 15.1,
-                    "totalprecip_mm": 0.0,
-                    "totalprecip_in": 0.0,
-                    "totalsnow_cm": 0.0,
-                    "avgvis_km": 10.0,
-                    "avgvis_miles": 6.0,
-                    "avghumidity": 43,
-                    "daily_will_it_rain": 0,
-                    "daily_chance_of_rain": 0,
-                    "daily_will_it_snow": 0,
-                    "daily_chance_of_snow": 0,
-                    "condition": {
-                        "text": "Sunny",
-                        "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
-                        "code": 1000
-                    },
-                    "uv": 0.0,
-                    "air_quality": {
-                        "co": 420.94615384615383,
-                        "no2": 17.333076923076923,
-                        "o3": 48.84615384615385,
-                        "so2": 1.6792307692307697,
-                        "pm2_5": 13.206153846153844,
-                        "pm10": 19.325384615384614,
-                        "us-epa-index": 1,
-                        "gb-defra-index": 2
-                    }
-                },
-                "astro": {
-                    "sunrise": "07:31 AM",
-                    "sunset": "05:51 PM",
-                    "moonrise": "12:13 AM",
-                    "moonset": "03:39 PM",
-                    "moon_phase": "Waning Crescent",
-                    "moon_illumination": 43,
-                    "is_moon_up": 0,
-                    "is_sun_up": 1
-                },
+                
                 "hour": [
                     {
                         "time_epoch": 1729839600,
