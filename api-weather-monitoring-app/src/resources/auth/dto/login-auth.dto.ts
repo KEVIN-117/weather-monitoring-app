@@ -1,4 +1,4 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsString, MinLength } from 'class-validator';
 
 export class LoginAuthDto {
   @IsEmail()
@@ -7,5 +7,6 @@ export class LoginAuthDto {
   @IsString({
     message: 'Password must be a string',
   })
+  @MinLength(4)
   password: string;
 }
