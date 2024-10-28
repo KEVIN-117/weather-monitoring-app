@@ -1,3 +1,8 @@
 export interface IProps {
-    data: any[];
-  }
+  data: {
+    name: string;
+    uv: number;
+    pv: number;
+    amt: number;
+  }[];
+}
