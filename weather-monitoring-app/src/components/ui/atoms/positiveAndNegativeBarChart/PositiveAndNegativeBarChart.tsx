@@ -2,7 +2,7 @@
 
 import { PositiveAndNegativeBarChartComponent } from "./PositiveAndNegativeBarChartComponent";
 import { getData } from "../../organisms/forecast/action/get-action";
-import { HourlyForecast } from "@/components/ui/organisms/lineChart/types/IProps";
+import { WeatherData } from "../../molecules/forecast-card/types/IProps";
 
 interface FortecastProps {
   lat?: string;
@@ -21,9 +21,9 @@ export async function PositiveAndNegativeBarChart({ lat, lon }: FortecastProps) 
   const data = await getData(5, `${LAT},${LON}`);
   console.log(data?.forecast.forecastday[0].date);
 
-  const barChartData = data?.forecast.forecastday[0].hour.map((hour: HourlyForecast) => ({
-    time: hour.time.split(" ")[1].slice(0, 7),
-    maxtemp_c: hour.temp_c + 2, // Simulación para máximo y mínimo
+  const barChartData = data?.forecast.forecastday[0].hour.map((hour: WeatherData) => ({
+    time: hour.time.split(" ")[1].slice(0, 5),
+    maxtemp_c: hour.temp_c + 2,
     mintemp_c: hour.temp_c - 2,
   })) as BarChartProps[];
 

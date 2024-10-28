@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IProps {
-    children:
-  }
+  children: React.ReactNode;
+}
