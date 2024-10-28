@@ -1,17 +1,21 @@
 "use client";
-import { Card, CardBody } from "@nextui-org/react";
+import { Card, CardBody, Divider } from "@nextui-org/react";
 import { useState } from "react";
 import { Logo } from "@/assets/Icons/Logo";
 import Input from "../../atoms/Input/Input";
 import { Button } from "../../atoms/Button";
 import { EyeFilledIcon } from "@/assets/Icons/EyeFilledIcon ";
 import { EyeSlashFilledIcon } from "@/assets/Icons/EyeSlashFilledIcon ";
+import { useRouter } from 'next/navigation'
 
 export function Login() {
+    const router = useRouter()
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleVisibility = () => setIsVisible(!isVisible);
-
+    function handleRegister() {
+        router.push('/auth/register')
+    }
     return (
         <Card
             isBlurred
@@ -65,6 +69,20 @@ export function Login() {
                         variant="shadow"
                     >
                         Init Session
+                    </Button>
+                    <div className="flex justify-center items-center gap-2">
+                        <Divider />
+                        <p>Or</p>
+                        <Divider />
+                    </div>
+                    <Button
+                        color="default"
+                        className="w-full"
+                        onClick={handleRegister}
+                        variant="bordered"
+
+                    >
+                        Registrarse
                     </Button>
                 </form>
             </CardBody>
