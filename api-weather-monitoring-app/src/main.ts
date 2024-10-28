@@ -25,7 +25,6 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, documentFactory);
   const { PORT } = envs;
   await app.listen(PORT);
-  logger.log(`envs: ${JSON.stringify(envs)}`);
   logger.log(`Server running on http://localhost:${PORT}`);
 }
 bootstrap();

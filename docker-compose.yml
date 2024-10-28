@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:12
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: weather_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./sql/db:/var/lib/postgresql/data
+    networks:
+      - app-network
+  web:
+    build: ./api-weather-monitoring-app
+    container_name: web
+    depends_on:
+      - db
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+    environment:
+      DATABASE_URL: postgres://default:V5IiQs4aojPR@ep-broad-bonus-a44or48o-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15
+      PORT: 3000
+      NODE_ENV: production
+      TOKEN_SECRET: KuJcCQ0is27L/z926N9bzAdoKtkMBhkHxvR84wPBW8Q=
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
