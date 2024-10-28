@@ -13,6 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file ./api-weather-monitoring-app/Dockerfile --tag ${{ env.API_IMAGE_TAG }}
-    - name: Push the Docker image
+      run: docker build -t ${{ env.API_IMAGE_TAG }} ./api-weather-monitoring-app/Dockerfile 
+    - name: Log in to GitHub Container Registry
       run: echo ${{ secrets.CI_REGISTRY_TOKEN }} | docker login ghcr.io -u ${{ secrets.CI_REGISTRY_USER }} --password-stdin
+    - name: Push the Docker image
+      run: docker push ${{ env.API_IMAGE_TAG }}
