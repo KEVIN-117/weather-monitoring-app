@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: verificate environment variables
+      run: echo ${{ secrets.CI_REGISTRY_USER }} ${{ secrets.CI_REGISTRY_TOKEN }} ${{ env.API_IMAGE_TAG }}
     - name: Build the Docker image
       run: docker build -t ${{ env.API_IMAGE_TAG }} -f ./api-weather-monitoring-app/Dockerfile ./api-weather-monitoring-app
     - name: Log in to GitHub Container Registry
