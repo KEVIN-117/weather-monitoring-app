@@ -1,12 +1,11 @@
 "use client";
 
-import { Card, CardHeader, CardBody, Divider } from "@nextui-org/react";
 import { IProps } from "./types/IProps";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { PieChart, Pie, Cell,Label } from "recharts";
+import { PieChart, Pie,Label } from "recharts";
 import { BarChart, Bar } from "recharts";
 import { ComposedChart, Area } from "recharts";
-const RADIAN = Math.PI / 180;
+// const RADIAN = Math.PI / 180;
 
 const defaultData = [
     { name: 'Jan', uv: 4000, pv: 2400, amt: 2400 },

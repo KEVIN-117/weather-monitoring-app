@@ -4,7 +4,7 @@ import { ITagProps } from './types/IProps';
 import { LuPill } from 'react-icons/lu';
 import { Button } from '../Button';
 
-const Tag: React.FC<ITagProps> = ({ icon = <LuPill style={{ color: '#90EE90', fontSize: '25px', paddingLeft: '2px' }} />, color = '#6E6E6E', title, subtitle }) => {
+const Tag: React.FC<ITagProps> = ({ icon = <LuPill style={{ color: '#90EE90', fontSize: '25px', paddingLeft: '2px' }} />, title, subtitle }) => {
     return (
         <Button className='bg-default-100/50 dark:bg-default-100/50 set-border' style={{ borderRadius:'30px',display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ borderRadius: '30px', color: '#006400' }}>

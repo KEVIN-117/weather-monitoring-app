@@ -1,16 +1,11 @@
 import React from "react";
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import { Card } from "@nextui-org/react";
 import { ContainerBarChars } from "@/components/ui/atoms/containerBarChars/ContainerBarChars";
 import { PositiveAndNegativeBarChartComponent } from "@/components/ui/atoms/positiveAndNegativeBarChart/PositiveAndNegativeBarChartComponent";
 import { PieChartWithNeedle } from "@/components/ui/atoms/pieChartWithNeedle/PieChartWithNeedle";
 import { SamedataComposedChart } from "@/components/ui/atoms/samedataComposedChart/SamedataComposedChart";
 import { LineChart } from "@/components/ui/organisms/lineChart/LineChart";
 function page() {
-  const defaultData = [
-    { name: "Jan", uv: 4000, pv: 2400, amt: 2400 },
-    { name: "Feb", uv: 3000, pv: 1398, amt: 2210 },
-    { name: "Mar", uv: 2000, pv: 9800, amt: 2290 },
-  ];
 
   const dataPie = [
     { name: "A", value: 80, color: "#ff0000" },
@@ -24,7 +19,7 @@ function page() {
           <LineChart />
           <PositiveAndNegativeBarChartComponent data={[]} /> 
           <ContainerBarChars>   <PieChartWithNeedle data={dataPie} /></ContainerBarChars>
-          <ContainerBarChars>  <SamedataComposedChart data={defaultData} /></ContainerBarChars>
+          <ContainerBarChars>  <SamedataComposedChart /></ContainerBarChars>
         </div>
       </Card>
     </div>

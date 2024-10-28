@@ -26,7 +26,7 @@ export function SamedataComposedChart() {
     const fetchWeatherData = async () => {
       try {
         const days = 14;
-        const weatherData = await getData(days);
+        const weatherData = await getData(days, "Buenos Aires, Argentina");
 
         // Procesar los datos para el gráfico
         const processedData = weatherData.forecast.forecastday.map((day) => ({
