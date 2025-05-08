@@ -1,0 +1,37 @@
+const mnodel = {
+  initialize: function () {
+    this.step = 4;
+    this.dt = [1, 0.5, 0.25, 0.125, 0.0625];
+    this.initTime = 0;
+    this.finalTime = 100;
+    this.v0 = 11000;
+    this.k = 0.0005;
+    this.h0 = 36144.071;
+  },
+  update: function () {
+    this.v = this.v0;
+    this.h = this.h0;
+    for (this.time = this.initTime; this.time < this.finalTime; this.time += this.dt[this.step]) {
+      this.v += - this.k * (this.v * this.v) * this.dt[this.step];
+      this.h += - this.v * this.dt[this.step];
+    }
+  }
+};
+
+
+
+
+
+
+<p id="example">
+  Final Time <span data-var="finalTime" class="TKAdjustableNumber" data-min="2" data-max="300"></span>
+Velocidad <span data-var="v" class="TKAdjustableNumber" data-min="0" data-max="100", data-step="1"></span>
+H0 <span data-var="h0" class="TKAdjustableNumber" data-min="0" data-max="50000", data-step="0.001"></span>
+
+H <span data-var="h" class="TKAdjustableNumber" data-min="0" data-max="20000", data-step="1"></span>
+
+</p>
+<div id='negative' class='plotly'  data-plotly='[time, h]'></div>
+
+
+
