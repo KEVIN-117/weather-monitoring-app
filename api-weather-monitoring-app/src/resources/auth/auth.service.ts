@@ -66,6 +66,7 @@ export class AuthService extends PrismaClient implements OnModuleInit {
       }
       const access_token = await this.createToken(user, data.id);
       return {
+        user: data,
         access_token,
       };
     } catch (error) {

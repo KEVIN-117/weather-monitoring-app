@@ -2,21 +2,35 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: verificate environment variables
-      run: echo ${{ secrets.CI_REGISTRY_USER }} ${{ secrets.CI_REGISTRY_TOKEN }} ${{ secrets.API_IMAGE_TAG }}
-    - name: Build the Docker image
-      run: docker build -t ${{ secrets.API_IMAGE_TAG }} -f ./api-weather-monitoring-app/Dockerfile ./api-weather-monitoring-app
-    - name: Log in to GitHub Container Registry
-      run: echo ${{ secrets.CI_REGISTRY_TOKEN }} | docker login -u ${{ secrets.CI_REGISTRY_USER }} --password-stdin
-    - name: Push the Docker image
-      run: docker push ${{ secrets.API_IMAGE_TAG }}
+      - uses: actions/checkout@v4
+      - name: verificate environment variables
+        run: echo ${{ secrets.CI_REGISTRY_USER }} ${{ secrets.CI_REGISTRY_TOKEN }} ${{ secrets.CLIENT_IMAGE_TAG }}
+      - name: Build the Docker image for the API
+        run: docker build -t ${{ secrets.API_IMAGE_TAG }} -f ./api-weather-monitoring-app/Dockerfile ./api-weather-monitoring-app
+      - name: Build the Docker image for the Frontend
+        run: docker build -t ${{ secrets.CLIENT_IMAGE_TAG }} -f ./weather-monitoring-app/Dockerfile ./frontend-weather-monitoring-app
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: run all tests
+        run: echo "run all tests"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log in to GitHub Container Registry
+        run: echo ${{ secrets.CI_REGISTRY_TOKEN }} | docker login -u ${{ secrets.CI_REGISTRY_USER }} --password-stdin
+      - name: Push the Docker image for the API
+        run: docker push ${{ secrets.API_IMAGE_TAG }}
+      - name: Push the Docker image for the Frontend
+        run: docker push ${{ secrets.CLIENT_IMAGE_TAG }}
