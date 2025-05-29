@@ -19,3 +19,9 @@
 
 ## Documentacion
 - https://api-nest-rmn3.onrender.com/api
+
+
+
+
+
+https://mirror-objective-3bb.notion.site/Laboratorio-1-de-Din-mica-de-Sistemas-9c77614af0954de193e83b7588f4c453
